@@ -39,8 +39,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cp sources/add2vals.py /src/sources/add2vals.py'
-                sh 'pyinstaller --onefile /src/sources/add2vals.py'
+                sh 'pyinstaller --onefile sources/add2vals.py'
                 sleep(time: 60, unit: 'SECONDS')
             }
             post {
