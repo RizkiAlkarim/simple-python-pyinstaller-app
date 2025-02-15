@@ -34,8 +34,7 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'batonogov/pyinstaller-linux:python3'
-                    args '-u root'
+                    image 'batonogov/pyinstaller-linux'
                 }
             }
             steps {
