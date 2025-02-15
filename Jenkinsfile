@@ -39,9 +39,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'docker cp sources/add2vals.py $(docker create cdrx/pyinstaller-linux:python2):/src/sources/add2vals.py'
-                sh 'docker run cdrx/pyinstaller-linux:python2 ls -l /src/sources'
-                sh 'docker run cdrx/pyinstaller-linux:python2 pyinstaller --onefile /src/sources/add2vals.py'
+                sh 'cp sources/add2vals.py /src/sources/add2vals.py'
+                sh 'pyinstaller --onefile /src/sources/add2vals.py'
                 sleep(time: 60, unit: 'SECONDS')
             }
             post {
