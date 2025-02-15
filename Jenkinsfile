@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
         stage('Build') {
             agent {
@@ -34,7 +37,7 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'batonogov/pyinstaller-linux'
+                    image 'cdrx/pyinstaller-linux:python2'
                 }
             }
             steps {
