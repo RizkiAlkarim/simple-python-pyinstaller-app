@@ -42,7 +42,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'apt-get update && apt-get install binutils'
+                sh 'apt-get update && apt-get install -y binutils'
                 sh 'pip install pyinstaller'
                 sh 'pyinstaller --onefile sources/add2vals.py'
                 sleep(time: 60, unit: 'SECONDS')
