@@ -37,11 +37,11 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2'
-                    args '-it --entrypoint=/bin/bash'
+                    image 'python:3.10-slim'
                 }
             }
             steps {
+                sh 'pip install pyinstaller'
                 sh 'pyinstaller --onefile sources/add2vals.py'
                 sleep(time: 60, unit: 'SECONDS')
             }
